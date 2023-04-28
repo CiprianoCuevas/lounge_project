@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css')}}">
+    <title>Document</title>
+</head>
+<body>
+<!-- this is the start of the navbar -->
+
+  <div class="nav">
+    <p class="member">Welcome {{member.f_name}}</p>
+      <div class="links">
+        <a href="/playing_now">What Are You Playing</a>
+        <br>
+        <a href="/logout">Log Out</a>
+      </div>
+    </div>
+
+    <!-- this is the end if the navbar -->
+
+    <!-- now I am going to start with the table now -->
+  </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for game in games %}
+          <tr>
+            <th>{{game.title}}</th>
+            <td>{{game.member.f_name}} {{game.member.l_name}}</td>
+            <th><a href="/one_gamer/{{game.id}}">View Info</a></th>
+            {% if session['member_id']== game.member_id %}
+            <th><a href="/edit/{{game.id}}">Edit</a></th>
+            <th><a href="/delete_game/{{game.id}}">Delete Art</a></th>
+            {% endif%}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <!-- this is the end of the table -->
+</body>
+</html>

@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{background-color: darkgray;}
+
+.nav{
+    color: rgb(112, 12, 12);
+    height: 50px;
+    display:flex;
+    justify-content: space-evenly;
+    background-color: darkgray;
+    padding: 10px;
+}
+
+.links{
+    font-size: larger;
+}
+
+.member{
+    font-family: 'Alkatra', cursive;
+    font-size: 60px;
+    margin: -10px auto;
+}
+
+a{
+    font-size: large;
+    text-decoration: none;
+}
+
+table{
+    width: 700px;
+    border: 2px solid black;
+    font-size: 20px;
+    margin: 30px auto;
+}

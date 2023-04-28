@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="p-5 mb-2 bg-dark text-white">
+
+    <h1 class="d-flex justify-content-center">Welcome</h1><br>
+    
+
+
+    <div id="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="d-flex justify-content-center">
+            <p><br>{{message}} </p>
+        </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        <div class="d-flex justify-content-around">
+            <div class="col-md-3">
+                    <h1>Register</h1>
+                    <form action="/member_registration" method="post">
+                        <label for="f_name" class="form-label">First Name:</label>
+                        <input type="text" name="f_name" class="form-control">
+                        <br>
+                        <label for="l_name" class="form-label">Last Name:</label>
+                        <input type="text" name="l_name" class="form-control">
+                        <br>
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="text" name="email" class="form-control">
+                        <br>
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" name="password" class="form-control">
+                        <br>
+                        <label for="confirm_password" class="form-label">Confirm Password:</label>
+                        <input type="password" name="confirm_password" class="form-control">
+                        <br>
+                    <button type="submit" class="btn btn-primary">Create Profile</button>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <h1>Login</h1>
+                <form action="/log_in" method="post">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="text" name="email" class="form-control">
+                    <br>
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" name="password" class="form-control">
+                    <br>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
